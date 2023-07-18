@@ -1,0 +1,16 @@
+{
+  "name": "styled-system",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/styled-system/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/styled-system/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 {
-  "name": "panda-nx-next-test",
+  "name": "my-app",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/panda-nx-next-test",
+  "sourceRoot": "apps/my-app",
   "projectType": "application",
   "targets": {
     "build": {
@@ -9,11 +9,11 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/panda-nx-next-test"
+        "outputPath": "dist/apps/my-app"
       },
       "configurations": {
         "development": {
-          "outputPath": "apps/panda-nx-next-test"
+          "outputPath": "apps/my-app"
         },
         "production": {}
       }
@@ -22,16 +22,16 @@
       "executor": "@nx/next:server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "panda-nx-next-test:build",
+        "buildTarget": "my-app:build",
         "dev": true
       },
       "configurations": {
         "development": {
-          "buildTarget": "panda-nx-next-test:build:development",
+          "buildTarget": "my-app:build:development",
           "dev": true
         },
         "production": {
-          "buildTarget": "panda-nx-next-test:build:production",
+          "buildTarget": "my-app:build:production",
           "dev": false
         }
       }
@@ -39,14 +39,14 @@
     "export": {
       "executor": "@nx/next:export",
       "options": {
-        "buildTarget": "panda-nx-next-test:build:production"
+        "buildTarget": "my-app:build:production"
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/panda-nx-next-test/jest.config.ts",
+        "jestConfig": "apps/my-app/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
@@ -60,7 +60,32 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/panda-nx-next-test/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/my-app/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "storybook": {
+      "executor": "@nx/storybook:storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "apps/my-app/.storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@nx/storybook:build",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/panda-nx-next-storybook",
+        "configDir": "apps/my-app/.storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
       }
     }
   },

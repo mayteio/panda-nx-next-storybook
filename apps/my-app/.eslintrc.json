@@ -12,7 +12,7 @@
       "rules": {
         "@next/next/no-html-link-for-pages": [
           "error",
-          "apps/panda-nx-next-test/pages"
+          "apps/panda-nx-next-storybook/pages"
         ]
       }
     },

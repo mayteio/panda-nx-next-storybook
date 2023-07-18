@@ -14,7 +14,14 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@panda-nx-next-storybook/styled-system": [
+        "libs/styled-system/src/index.ts"
+      ],
+      "@panda-nx-next-storybook/styled-system/server": [
+        "libs/styled-system/src/server.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
